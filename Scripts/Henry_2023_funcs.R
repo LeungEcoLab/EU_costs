@@ -18,10 +18,6 @@ do_df_extrap <- function(df.sp, df.fit){
   df.extrap <- df.sp[-same,] #remove all rows of data that are present in df
   df.extrap <- df.extrap[!df.extrap$comb == "San Marino Myocastor coypus Agriculture Damage",] #remove this line because GDP of agriculture in san marino is 0
   
-  #Remove countries not in the EU
-  extra.c <- c("Andorra", "San Marino", "Monaco", "Liechtenstein") #NOT IN EU
-  df.extrap <- df.extrap[!(df.extrap$Official_country %in% extra.c),]
-  
   df.fit$type <- "invacost" #to keep track of waht is what
   df.extrap$type <- "extrapol" #to keep track of what is what
   
